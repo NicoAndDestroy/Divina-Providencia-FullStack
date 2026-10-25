@@ -1,13 +1,16 @@
 import { useState } from 'react'
+import { createReservation } from '../services/reservationService'
 
 /**
- * Formulario utilizado para realizar una solicitud inicial
- * de reserva sobre el alojamiento seleccionado.
+ * Formulario utilizado para registrar una reserva
+ * sobre el alojamiento seleccionado.
  *
  * @param {Object|null} selectedAccommodation Alojamiento seleccionado.
  */
 function ReservationForm({ selectedAccommodation }) {
   const [formData, setFormData] = useState({
+    guestName: '',
+    guestEmail: '',
     checkIn: '',
     checkOut: '',
     guests: 1,
@@ -15,6 +18,7 @@ function ReservationForm({ selectedAccommodation }) {
 
   const [errors, setErrors] = useState({})
   const [message, setMessage] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   /**
    * Actualiza el estado del formulario cada vez que
@@ -39,6 +43,21 @@ function ReservationForm({ selectedAccommodation }) {
     if (!selectedAccommodation) {
       validationErrors.accommodation =
         'Debes seleccionar un alojamiento.'
+    }
+
+    if (!formData.guestName.trim()) {
+      validationErrors.guestName =
+        'El nombre del huésped es obligatorio.'
+    }
+
+    if (!formData.guestEmail.trim()) {
+      validationErrors.guestEmail =
+        'El correo electrónico es obligatorio.'
+    } else if (
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.guestEmail)
+    ) {
+      validationErrors.guestEmail =
+        'Ingresa un correo electrónico válido.'
     }
 
     if (!formData.checkIn) {
@@ -79,10 +98,10 @@ function ReservationForm({ selectedAccommodation }) {
   }
 
   /**
-   * Procesa el envío del formulario después de ejecutar
-   * las validaciones.
+   * Envía la reserva al backend después de validar
+   * los datos ingresados por el usuario.
    */
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
 
     const validationErrors = validateForm()
@@ -94,10 +113,43 @@ function ReservationForm({ selectedAccommodation }) {
     }
 
     setErrors({})
+    setMessage('')
+    setIsSubmitting(true)
 
-    setMessage(
-      `Solicitud registrada para ${selectedAccommodation.name}.`
-    )
+    const reservationData = {
+      guestName: formData.guestName.trim(),
+      guestEmail: formData.guestEmail.trim(),
+      checkIn: formData.checkIn,
+      checkOut: formData.checkOut,
+      numberOfGuests: Number(formData.guests),
+      status: 'CONFIRMED',
+      accommodationId: selectedAccommodation.id,
+    }
+
+    try {
+      const createdReservation =
+        await createReservation(reservationData)
+
+      setMessage(
+        `Reserva #${createdReservation.id} registrada correctamente para ${selectedAccommodation.name}.`
+      )
+
+      setFormData({
+        guestName: '',
+        guestEmail: '',
+        checkIn: '',
+        checkOut: '',
+        guests: 1,
+      })
+    } catch (error) {
+      console.error('Error al crear la reserva:', error)
+
+      setMessage(
+        'No fue posible registrar la reserva. Intenta nuevamente.'
+      )
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -135,6 +187,48 @@ function ReservationForm({ selectedAccommodation }) {
           </div>
 
           <div className="form-grid">
+            <div className="form-group">
+              <label htmlFor="guestName">
+                Nombre del huésped
+              </label>
+
+              <input
+                id="guestName"
+                name="guestName"
+                type="text"
+                value={formData.guestName}
+                onChange={handleChange}
+                placeholder="Nombre completo"
+              />
+
+              {errors.guestName && (
+                <p className="error-message">
+                  {errors.guestName}
+                </p>
+              )}
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="guestEmail">
+                Correo electrónico
+              </label>
+
+              <input
+                id="guestEmail"
+                name="guestEmail"
+                type="email"
+                value={formData.guestEmail}
+                onChange={handleChange}
+                placeholder="correo@ejemplo.com"
+              />
+
+              {errors.guestEmail && (
+                <p className="error-message">
+                  {errors.guestEmail}
+                </p>
+              )}
+            </div>
+
             <div className="form-group">
               <label htmlFor="checkIn">
                 Fecha de entrada
@@ -200,8 +294,11 @@ function ReservationForm({ selectedAccommodation }) {
           <button
             className="primary-button"
             type="submit"
+            disabled={isSubmitting}
           >
-            Solicitar reserva
+            {isSubmitting
+              ? 'Registrando...'
+              : 'Solicitar reserva'}
           </button>
 
           {message && (
