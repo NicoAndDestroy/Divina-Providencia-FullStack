@@ -6,6 +6,7 @@ import HeroSection from './components/HeroSection'
 import AccommodationSection from './components/AccommodationSection'
 import ReservationForm from './components/ReservationForm'
 import Footer from './components/Footer'
+import AuthSection from './components/AuthSection'
 
 import { getAccommodations } from './services/accommodationService'
 
@@ -75,6 +76,7 @@ function App() {
 
       <main>
         <HeroSection />
+        <AuthSection />
 
         {loading && (
           <section className="section">
