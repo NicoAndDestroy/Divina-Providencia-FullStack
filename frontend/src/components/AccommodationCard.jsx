@@ -6,16 +6,25 @@
  *                            un alojamiento.
  */
 function AccommodationCard({ accommodation, onSelect }) {
+  const price =
+    accommodation.pricePerNight ??
+    accommodation.price ??
+    0
+
   const formattedPrice = new Intl.NumberFormat('es-CO', {
     style: 'currency',
     currency: 'COP',
     maximumFractionDigits: 0,
-  }).format(accommodation.price)
+  }).format(price)
+
+  const accommodationCode =
+    accommodation.code ??
+    `DP${String(accommodation.id).padStart(3, '0')}`
 
   return (
     <article className="accommodation-card">
       <div className="accommodation-code">
-        {accommodation.code}
+        {accommodationCode}
       </div>
 
       <h3>{accommodation.name}</h3>
