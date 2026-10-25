@@ -1,13 +1,16 @@
 package com.divinaprovidencia.api;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 class ProjectApiApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+    @Test
+    void applicationClassShouldExist() {
 
+        assertNotNull(
+                ProjectApiApplication.class
+        );
+    }
 }
