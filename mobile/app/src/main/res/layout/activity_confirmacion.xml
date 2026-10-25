@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F9EF"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Solicitud enviada"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="#244E5A"
+        android:gravity="center" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Gracias por contactarnos. Pronto confirmaremos disponibilidad para tu escapada rural."
+        android:textSize="16sp"
+        android:textColor="#4A5C50"
+        android:gravity="center"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/btnVolverHomeConfirmacion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Volver al inicio"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#244E5A"
+        android:layout_marginTop="24dp" />
+
+</LinearLayout>

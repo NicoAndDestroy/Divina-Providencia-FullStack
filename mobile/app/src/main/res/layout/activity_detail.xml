@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F1FAEE">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- IMAGE -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="#264653"/>
+
+        <!-- TITLE -->
+        <TextView
+            android:text="Habitación Superior"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <!-- DESCRIPTION -->
+        <TextView
+            android:text="Disfruta de una habitación con vista al jardín, desayuno incluido y todas las comodidades."
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <!-- SERVICES -->
+        <TextView
+            android:text="✔ Wifi\n✔ Aire acondicionado\n✔ Desayuno incluido"
+            android:layout_marginTop="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <!-- BUTTON -->
+        <Button
+            android:text="Reservar"
+            android:backgroundTint="#2A9D8F"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</ScrollView>

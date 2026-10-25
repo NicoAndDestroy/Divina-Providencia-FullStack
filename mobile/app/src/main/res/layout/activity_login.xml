@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F9EF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:background="#244E5A" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Divina Providencia"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="#244E5A"
+            android:gravity="center"
+            android:layout_marginTop="28dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Inicia sesión para gestionar tu reserva"
+            android:textSize="16sp"
+            android:textColor="#4A5C50"
+            android:gravity="center"
+            android:layout_marginTop="8dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Correo electrónico"
+            android:inputType="textEmailAddress"
+            android:layout_marginTop="28dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:layout_marginTop="12dp" />
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ingresar"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#2FA59A"
+            android:layout_marginTop="24dp" />
+
+        <Button
+            android:id="@+id/btnInvitado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Continuar como invitado"
+            android:textColor="#244E5A"
+            android:backgroundTint="#FFFFFF"
+            android:layout_marginTop="12dp" />
+
+    </LinearLayout>
+</ScrollView>

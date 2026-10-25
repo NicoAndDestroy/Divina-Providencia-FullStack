@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F9EF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Vive la experiencia"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#244E5A" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Planes rurales para disfrutar en pareja, familia o grupo."
+            android:textSize="15sp"
+            android:textColor="#4A5C50"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nocturna · Fogatas al Aire Libre\nNoches mágicas bajo las estrellas, música y buena compañía.\nDesde 80.000 COP por grupo"
+            android:background="#FFFFFF"
+            android:textColor="#23322B"
+            android:padding="18dp"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pasadía · Día de Piscina\nDisfruta el sol, zonas verdes y brisa fresca con planes para todos.\nDesde 50.000 COP por persona"
+            android:background="#FFFFFF"
+            android:textColor="#23322B"
+            android:padding="18dp"
+            android:layout_marginTop="14dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nocturna · Cine Bajo las Estrellas\nPelículas al aire libre con mantas, luces y crispetas.\nDesde 60.000 COP por grupo"
+            android:background="#FFFFFF"
+            android:textColor="#23322B"
+            android:padding="18dp"
+            android:layout_marginTop="14dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Romántica · Picnic Campestre\nTarde tranquila entre naturaleza, canasta y buena compañía.\nDesde 90.000 COP por pareja"
+            android:background="#FFFFFF"
+            android:textColor="#23322B"
+            android:padding="18dp"
+            android:layout_marginTop="14dp" />
+
+        <Button
+            android:id="@+id/btnVolverHomeExperiencias"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Volver al inicio"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#244E5A"
+            android:layout_marginTop="24dp" />
+
+    </LinearLayout>
+</ScrollView>

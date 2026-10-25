@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F9EF"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ubicación y Contacto"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="#244E5A" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Estamos aquí para ayudarte a planear tu escapada rural perfecta."
+        android:textSize="15sp"
+        android:textColor="#4A5C50"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Finca El Zaguán, Vereda Usatama Bajo, Fusagasugá\n\nWhatsApp: +57 310 566 0489\nCorreo: divinaprovidencia@contacto.com\n\nSíguenos en redes sociales y consulta promociones."
+        android:textSize="16sp"
+        android:textColor="#23322B"
+        android:background="#FFFFFF"
+        android:padding="18dp"
+        android:layout_marginTop="20dp" />
+
+    <Button
+        android:id="@+id/btnVolverHomeContacto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Volver al inicio"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#244E5A"
+        android:layout_marginTop="24dp" />
+
+</LinearLayout>
