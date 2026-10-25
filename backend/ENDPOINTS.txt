@@ -1,0 +1,309 @@
+DIVINA PROVIDENCIA - PROJECT API
+GA7-220501096-AA5-EV03
+
+BASE URL LOCAL
+http://localhost:8082
+
+CONTENT-TYPE
+application/json
+
+
+============================================================
+1. AUTENTICACIÓN
+============================================================
+
+REGISTRO DE USUARIO
+
+Método:
+POST
+
+Endpoint:
+http://localhost:8082/api/auth/register
+
+Ruta:
+POST /api/auth/register
+
+Body:
+
+{
+  "username": "project_user",
+  "password": "ClaveSegura123"
+}
+
+Respuesta correcta:
+201 Created
+
+{
+  "message": "Usuario registrado correctamente."
+}
+
+Usuario duplicado:
+409 Conflict
+
+{
+  "message": "El usuario ya se encuentra registrado."
+}
+
+
+INICIO DE SESIÓN
+
+Método:
+POST
+
+Endpoint:
+http://localhost:8082/api/auth/login
+
+Ruta:
+POST /api/auth/login
+
+Body:
+
+{
+  "username": "project_user",
+  "password": "ClaveSegura123"
+}
+
+Autenticación correcta:
+200 OK
+
+{
+  "message": "Autenticación satisfactoria."
+}
+
+Autenticación incorrecta:
+401 Unauthorized
+
+{
+  "message": "Error en la autenticación."
+}
+
+
+============================================================
+2. ALOJAMIENTOS
+============================================================
+
+CREAR ALOJAMIENTO
+
+POST http://localhost:8082/api/accommodations
+
+Ejemplo:
+
+{
+  "name": "Suite Campestre",
+  "description": "Alojamiento confortable para parejas y familias pequeñas.",
+  "capacity": 4,
+  "pricePerNight": 290000,
+  "available": true
+}
+
+Respuesta correcta:
+201 Created
+
+
+CONSULTAR TODOS LOS ALOJAMIENTOS
+
+GET http://localhost:8082/api/accommodations
+
+Respuesta:
+200 OK
+
+
+CONSULTAR ALOJAMIENTO POR ID
+
+GET http://localhost:8082/api/accommodations/{id}
+
+Ejemplo:
+
+GET http://localhost:8082/api/accommodations/2
+
+Respuesta:
+200 OK
+
+Si no existe:
+404 Not Found
+
+
+CONSULTAR ALOJAMIENTOS DISPONIBLES
+
+GET http://localhost:8082/api/accommodations/available
+
+Respuesta:
+200 OK
+
+
+ACTUALIZAR ALOJAMIENTO
+
+PUT http://localhost:8082/api/accommodations/{id}
+
+Ejemplo:
+
+PUT http://localhost:8082/api/accommodations/2
+
+Respuesta:
+200 OK
+
+Si no existe:
+404 Not Found
+
+
+ELIMINAR ALOJAMIENTO
+
+DELETE http://localhost:8082/api/accommodations/{id}
+
+Respuesta:
+204 No Content
+
+Si no existe:
+404 Not Found
+
+
+============================================================
+3. RESERVAS
+============================================================
+
+CREAR RESERVA
+
+POST http://localhost:8082/api/reservations
+
+Ejemplo:
+
+{
+  "guestName": "Jhoan Nicolás Morales",
+  "guestEmail": "nicolas@example.com",
+  "checkIn": "2026-11-15",
+  "checkOut": "2026-11-17",
+  "numberOfGuests": 2,
+  "status": "CONFIRMED",
+  "accommodationId": 2
+}
+
+Respuesta correcta:
+201 Created
+
+
+CONSULTAR TODAS LAS RESERVAS
+
+GET http://localhost:8082/api/reservations
+
+Respuesta:
+200 OK
+
+
+CONSULTAR RESERVA POR ID
+
+GET http://localhost:8082/api/reservations/{id}
+
+Ejemplo:
+
+GET http://localhost:8082/api/reservations/1
+
+Respuesta:
+200 OK
+
+Si no existe:
+404 Not Found
+
+
+CONSULTAR RESERVAS POR ESTADO
+
+GET http://localhost:8082/api/reservations/status?value=CONFIRMED
+
+Respuesta:
+200 OK
+
+
+CONSULTAR RESERVAS POR ALOJAMIENTO
+
+GET http://localhost:8082/api/reservations/accommodation/{accommodationId}
+
+Ejemplo:
+
+GET http://localhost:8082/api/reservations/accommodation/2
+
+Respuesta:
+200 OK
+
+
+ACTUALIZAR RESERVA
+
+PUT http://localhost:8082/api/reservations/{id}
+
+Ejemplo:
+
+{
+  "guestName": "Jhoan Nicolás Morales",
+  "guestEmail": "nicolas@example.com",
+  "checkIn": "2026-11-16",
+  "checkOut": "2026-11-19",
+  "numberOfGuests": 3,
+  "status": "UPDATED",
+  "accommodationId": 2
+}
+
+Respuesta:
+200 OK
+
+Si no existe:
+404 Not Found
+
+
+ELIMINAR RESERVA
+
+DELETE http://localhost:8082/api/reservations/{id}
+
+Respuesta:
+204 No Content
+
+Si no existe:
+404 Not Found
+
+
+============================================================
+RESUMEN DE ENDPOINTS
+============================================================
+
+AUTH
+
+POST /api/auth/register
+POST /api/auth/login
+
+
+ACCOMMODATIONS
+
+POST   /api/accommodations
+GET    /api/accommodations
+GET    /api/accommodations/{id}
+GET    /api/accommodations/available
+PUT    /api/accommodations/{id}
+DELETE /api/accommodations/{id}
+
+
+RESERVATIONS
+
+POST   /api/reservations
+GET    /api/reservations
+GET    /api/reservations/{id}
+GET    /api/reservations/status?value=CONFIRMED
+GET    /api/reservations/accommodation/{accommodationId}
+PUT    /api/reservations/{id}
+DELETE /api/reservations/{id}
+
+
+============================================================
+INFORMACIÓN DEL PROYECTO
+============================================================
+
+Proyecto:
+Divina Providencia
+
+Evidencia:
+GA7-220501096-AA5-EV03
+
+Autor:
+Jhoan Nicolás Morales Suárez
+
+Programa:
+Análisis y Desarrollo de Software - ADSO
+
+Ficha:
+3235869

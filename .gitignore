@@ -1,0 +1,28 @@
+﻿# ==============================
+# Divina Providencia FullStack
+# ==============================
+
+# Frontend - React / Vite
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.*
+!frontend/.env.example
+
+# Backend - Spring Boot
+backend/target/
+backend/src/main/resources/application.properties
+
+# IDE
+.idea/
+.vscode/
+*.iml
+nbproject/private/
+
+# Operating System
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
